@@ -1,0 +1,50 @@
+﻿@model HynaBackendAsp.Models.Slider
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tittle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tittle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slogan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slogan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.More_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.More_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.More_text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.More_text)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
