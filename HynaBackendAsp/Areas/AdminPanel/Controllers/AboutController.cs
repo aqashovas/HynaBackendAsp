@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,14 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Tittle,Text,Photo")] About about)
+        public ActionResult Create([Bind(Include = "Id,Tittle,Text,Photo")] About about, HttpPostedFileBase Photo)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+            Photo.SaveAs(path);
+
+            about.Photo = filename;
             if (ModelState.IsValid)
             {
                 db.Abouts.Add(about);
@@ -79,8 +86,21 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Tittle,Text,Photo")] About about)
+        public ActionResult Edit([Bind(Include = "Id,Tittle,Text,Photo")] About about, HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                db.Entry(about).Property(m => m.Photo).IsModified = false;
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+                Photo.SaveAs(path);
+
+                about.Photo = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(about).State = EntityState.Modified;
@@ -111,6 +131,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             About about = db.Abouts.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), about.Photo));
             db.Abouts.Remove(about);
             db.SaveChanges();
             return RedirectToAction("Index");

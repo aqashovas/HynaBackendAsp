@@ -17,7 +17,8 @@ namespace HynaBackendAsp.Areas.AdminPanel
             context.MapRoute(
                 "AdminPanel_default",
                 "AdminPanel/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new string[] { "HynaBackendAsp.Areas.AdminPanel.Controllers" }
             );
         }
     }

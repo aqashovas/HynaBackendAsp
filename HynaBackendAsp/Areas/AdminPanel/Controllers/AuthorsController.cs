@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,14 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Fullname,Position,Photo,Desc")] Author author)
+        public ActionResult Create([Bind(Include = "Id,Fullname,Position,Photo,Desc")] Author author,HttpPostedFileBase Photo)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+            Photo.SaveAs(path);
+
+            author.Photo = filename;
             if (ModelState.IsValid)
             {
                 db.Authors.Add(author);
@@ -79,8 +86,21 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Fullname,Position,Photo,Desc")] Author author)
+        public ActionResult Edit([Bind(Include = "Id,Fullname,Position,Photo,Desc")] Author author,HttpPostedFileBase Photo)
         {
+            if (Photo == null)
+            {
+                db.Entry(author).Property(m => m.Photo).IsModified = false;
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+                Photo.SaveAs(path);
+
+                author.Photo = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(author).State = EntityState.Modified;
@@ -111,6 +131,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Author author = db.Authors.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), about.Photo));
             db.Authors.Remove(author);
             db.SaveChanges();
             return RedirectToAction("Index");
