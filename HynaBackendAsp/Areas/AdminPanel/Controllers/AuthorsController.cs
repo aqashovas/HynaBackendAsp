@@ -130,8 +130,9 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Author author = db.Authors.Find(id);
-            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), about.Photo));
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), author.Photo));
             db.Authors.Remove(author);
             db.SaveChanges();
             return RedirectToAction("Index");

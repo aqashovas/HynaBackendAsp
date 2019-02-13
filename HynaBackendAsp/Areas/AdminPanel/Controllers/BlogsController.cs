@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -50,8 +51,14 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Tittle,Date,Desc,Photo,Text,CategoryId,AuthorId")] Blog blog)
+        public ActionResult Create([Bind(Include = "Id,Tittle,Date,Desc,Photo,Text,CategoryId,AuthorId")] Blog blog,HttpPostedFileBase Photo)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+            Photo.SaveAs(path);
+
+            blog.Photo = filename;
             if (ModelState.IsValid)
             {
                 db.Blogs.Add(blog);
@@ -67,6 +74,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // GET: AdminPanel/Blogs/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -86,8 +94,23 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Tittle,Date,Desc,Photo,Text,CategoryId,AuthorId")] Blog blog)
+        public ActionResult Edit(Blog blog,HttpPostedFileBase Photo)
         {
+            db.Entry(blog).State = System.Data.Entity.EntityState.Modified;
+
+            if (Photo == null)
+            {
+                db.Entry(blog).Property(m => m.Photo).IsModified = false;
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+                Photo.SaveAs(path);
+
+                blog.Photo = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(blog).State = EntityState.Modified;
