@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,14 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Logo,Phone,Email,Address,Facebook,Youtube,Instagram,Lat,Lng")] Setting setting)
+        public ActionResult Create([Bind(Include = "Id,Logo,Phone,Email,Address,Facebook,Youtube,Instagram,Lat,Lng")] Setting setting,HttpPostedFileBase Logo)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Logo.FileName;
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+            Logo.SaveAs(path);
+
+            setting.Logo = filename;
             if (ModelState.IsValid)
             {
                 db.Settings.Add(setting);
@@ -79,8 +86,24 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Logo,Phone,Email,Address,Facebook,Youtube,Instagram,Lat,Lng")] Setting setting)
+        public ActionResult Edit(/*[Bind(Include = "Id,Logo,Phone,Email,Address,Facebook,Youtube,Instagram,Lat,Lng")] */Setting setting,HttpPostedFileBase Logo)
         {
+            db.Entry(setting).State = System.Data.Entity.EntityState.Modified;
+            //db.Abouts.Attach(about);
+            //db.Entry(about).Property(m => m.Photo).IsModified = true;
+            if (Logo == null)
+            {
+                db.Entry(setting).Property(m => m.Logo).IsModified = false;
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Logo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+                Logo.SaveAs(path);
+
+                setting.Logo = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(setting).State = EntityState.Modified;
@@ -111,6 +134,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Setting setting = db.Settings.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), setting.Logo));
             db.Settings.Remove(setting);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,22 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Orderby,Name,Icon,Photo,Desc,Pdf,Doc,Text")] Service service)
+        public ActionResult Create([Bind(Include = "Id,Orderby,Name,Icon,Photo,Desc,Pdf,Doc,Text")] Service service,HttpPostedFileBase Photo,HttpPostedFileBase Icon)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+            string filename1 = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Icon.FileName;
+
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+            string path1 = Path.Combine(Server.MapPath("~/Upload"), filename1);
+
+
+            Photo.SaveAs(path);
+            Icon.SaveAs(path1);
+
+
+            service.Photo = filename;
+            service.Icon = filename1;
+
             if (ModelState.IsValid)
             {
                 db.Services.Add(service);
@@ -79,8 +94,34 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Orderby,Name,Icon,Photo,Desc,Pdf,Doc,Text")] Service service)
+        public ActionResult Edit(/*[Bind(Include = "Id,Orderby,Name,Icon,Photo,Desc,Pdf,Doc,Text")]*/ Service service,HttpPostedFileBase Photo,HttpPostedFileBase Icon)
         {
+
+            db.Entry(service).State = System.Data.Entity.EntityState.Modified;
+            //db.Abouts.Attach(about);
+            //db.Entry(about).Property(m => m.Photo).IsModified = true;
+            if (Photo == null && Icon==null)
+            {
+                db.Entry(service).Property(m => m.Photo).IsModified = false;
+                db.Entry(service).Property(m => m.Icon).IsModified = false;
+
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+                string filename1 = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Icon.FileName;
+
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+                string path1 = Path.Combine(Server.MapPath("~/Upload"), filename1);
+
+
+                Photo.SaveAs(path);
+                Icon.SaveAs(path1);
+
+
+                service.Photo = filename;
+                service.Icon = filename1;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(service).State = EntityState.Modified;
@@ -111,6 +152,8 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Service service = db.Services.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), service.Photo));
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), service.Icon));
             db.Services.Remove(service);
             db.SaveChanges();
             return RedirectToAction("Index");

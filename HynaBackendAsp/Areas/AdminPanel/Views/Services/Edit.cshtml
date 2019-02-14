@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("edit", "services", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -36,7 +36,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Icon, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Icon, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" id="Icon" class="form-control" name="Icon" />
+                <input type="image" src="~/Upload/@Model.Icon" width="150" />
                 @Html.ValidationMessageFor(model => model.Icon, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +45,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="file" id="Photo" class="form-control" name="Photo" />
+                <input type="image" src="~/Upload/@Model.Photo" width="150" />
                 @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -93,6 +95,3 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

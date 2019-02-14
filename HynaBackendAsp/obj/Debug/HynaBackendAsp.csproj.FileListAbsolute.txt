@@ -171,10 +171,11 @@ C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\bin\Syst
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\bin\System.Web.WebPages.Razor.xml
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\bin\System.Web.Optimization.xml
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\bin\Antlr3.Runtime.pdb
-C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.csprojAssemblyReference.cache
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.Migrations.Init.resources
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.csproj.GenerateResource.cache
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.csproj.CoreCompileInputs.cache
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.csproj.CopyComplete
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.dll
 C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.pdb
+C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.Migrations.Admin.resources
+C:\Users\Sabina123\Source\Repos\aqashovas\HynaBackendAsp\HynaBackendAsp\obj\Debug\HynaBackendAsp.csprojAssemblyReference.cache

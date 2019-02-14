@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.Text)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
+            <img src="~/Upload/@item.Photo" width="75" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

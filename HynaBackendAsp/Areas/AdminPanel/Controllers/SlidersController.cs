@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,14 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Tittle,Slogan,More_url,More_text")] Slider slider)
+        public ActionResult Create([Bind(Include = "Id,Tittle,Slogan,More_url,More_text")] Slider slider,HttpPostedFileBase Slogan)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Slogan.FileName;
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+            Slogan.SaveAs(path);
+
+            slider.Slogan = filename;
             if (ModelState.IsValid)
             {
                 db.Sliders.Add(slider);
@@ -79,8 +86,24 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Tittle,Slogan,More_url,More_text")] Slider slider)
+        public ActionResult Edit(/*[Bind(Include = "Id,Tittle,Slogan,More_url,More_text")]*/ Slider slider,HttpPostedFileBase Slogan)
         {
+            db.Entry(slider).State = System.Data.Entity.EntityState.Modified;
+            //db.Abouts.Attach(about);
+            //db.Entry(about).Property(m => m.Photo).IsModified = true;
+            if (Slogan == null)
+            {
+                db.Entry(slider).Property(m => m.Slogan).IsModified = false;
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Slogan.FileName;
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+                Slogan.SaveAs(path);
+
+                slider.Slogan = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(slider).State = EntityState.Modified;
@@ -111,6 +134,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Slider slider = db.Sliders.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), slider.Slogan));
             db.Sliders.Remove(slider);
             db.SaveChanges();
             return RedirectToAction("Index");

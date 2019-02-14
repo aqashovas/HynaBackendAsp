@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,8 +48,13 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Text,Photo")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Name,Text,Photo")] Project project,HttpPostedFileBase Photo)
         {
+            string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+            string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+            Photo.SaveAs(path);
+            project.Photo = filename;
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
@@ -79,8 +85,23 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Text,Photo")] Project project)
+        public ActionResult Edit(/*[Bind(Include = "Id,Name,Text,Photo")]*/ Project project,HttpPostedFileBase Photo)
         {
+            db.Entry(project).State = System.Data.Entity.EntityState.Modified;
+            
+            if (Photo == null)
+            {
+                db.Entry(project).Property(m => m.Photo).IsModified = false;
+            }
+            else
+            {
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Photo.FileName;
+                string path = Path.Combine(Server.MapPath("~/Upload"), filename);
+
+                Photo.SaveAs(path);
+
+                project.Photo = filename;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
@@ -111,6 +132,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.Projects.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), project.Photo));
             db.Projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("Index");

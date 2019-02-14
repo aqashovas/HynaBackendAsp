@@ -131,9 +131,11 @@
     <Compile Include="Areas\AdminPanel\Controllers\AuthorsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\BlogsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\DashboardController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\FactsController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\FaqCategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\FaqsController.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\PartnersController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProjectCategoriesController.cs" />
     <Compile Include="Areas\AdminPanel\Controllers\ProjectsController.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Areas\AdminPanel\Controllers\SlidersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\HynaContext.cs" />
+    <Compile Include="Filter\Admin.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -149,8 +152,13 @@
     <Compile Include="Migrations\201902112127249_Init.Designer.cs">
       <DependentUpon>201902112127249_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902142115377_Admin.cs" />
+    <Compile Include="Migrations\201902142115377_Admin.Designer.cs">
+      <DependentUpon>201902142115377_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Fact.cs" />
@@ -1954,6 +1962,7 @@
     <Content Include="Areas\AdminPanel\Public\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Areas\AdminPanel\Public\vendor\jquery\jquery.min.map" />
     <Content Include="Areas\AdminPanel\Public\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\AdminPanel\Views\Dashboard\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2017,6 +2026,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902112127249_Init.resx">
       <DependentUpon>201902112127249_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902142115377_Admin.resx">
+      <DependentUpon>201902142115377_Admin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

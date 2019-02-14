@@ -97,7 +97,8 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult Edit(Blog blog,HttpPostedFileBase Photo)
         {
             db.Entry(blog).State = System.Data.Entity.EntityState.Modified;
-
+            //db.Abouts.Attach(about);
+            //db.Entry(about).Property(m => m.Photo).IsModified = true;
             if (Photo == null)
             {
                 db.Entry(blog).Property(m => m.Photo).IsModified = false;
@@ -143,6 +144,7 @@ namespace HynaBackendAsp.Areas.AdminPanel.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Blog blog = db.Blogs.Find(id);
+            System.IO.File.Delete(Path.Combine(Server.MapPath("~/Upload"), blog.Photo));
             db.Blogs.Remove(blog);
             db.SaveChanges();
             return RedirectToAction("Index");
