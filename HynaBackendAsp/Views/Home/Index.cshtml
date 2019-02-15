@@ -1,68 +1,407 @@
-﻿@model Admin
+﻿
 @{
-    Layout = null;
     ViewBag.Title = "Index";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SB Admin 2 - Login</title>
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="~/Areas/AdminPanel/Public/css/sb-admin-2.css" rel="stylesheet">
-</head>
-<body class="bg-gradient-primary">
+
+<h2>Index</h2>
+
+<section class="main-slider">
+    <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
+        <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
+            <ul>
+                <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1000"
+                    data-fsslotamount="12" data-fstransition="3dcurtain-vertical" data-hideafterloop="0" data-hideslideonmobile="off"
+                    data-index="rs-1688" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3=""
+                    data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0"
+                    data-saveperformance="off" data-slotamount="default" data-thumb="img/hero/bg.png" data-title="Slide Title"
+                    data-transition="3dcurtain-vertical">
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat"
+                         data-bgparallax="off" data-no-retina="" src="img/hero/bg.png">
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-1" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="image"
+                         data-height="none" data-width="['357','850','750','600']" data-whitespace="normal" data-hoffset="['324','-675','-580','-475']"
+                         data-voffset="['334','70','110','30']" data-x="['center','center','center','center']" data-y="['top','top','top','top']"
+                         data-textalign="['bottom','bottom','bottom','bottom']" data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":2000,"frame":"0","from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"1000","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="slide-image-3"><img src="img/hero/3.png" alt=" /"></div>
+                    </div>
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-1" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="image"
+                         data-height="none" data-width="['199','199','750','600']" data-whitespace="normal" data-hoffset="['100','-215','-95','-75']"
+                         data-voffset="['468','468','468','70']" data-x="['center','right','right','right']" data-y="['top','top','top','top']"
+                         data-textalign="['top','top','top','top']" data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":2000,"frame":"0","from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="slide-image-1"><img src="img/hero/1.png" alt=" /"></div>
+                    </div>
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-1" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="image"
+                         data-height="none" data-width="['123','123','750','600']" data-whitespace="normal" data-hoffset="['145','-505','-405','-475']"
+                         data-voffset="['350','210','170','100']" data-x="['center','center','center','center']" data-y="['top','top','top','top']"
+                         data-textalign="['top','top','top','top']" data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":2000,"frame":"0","from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="slide-image-2"><img src="img/hero/2.png" alt=" /"></div>
+                    </div>
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-1" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="image"
+                         data-height="none" data-width="['229','229','750','600']" data-whitespace="normal" data-hoffset="['-15','-800','-795','-690']"
+                         data-voffset="['490','155','100','70']" data-x="['right','right','right','right']" data-y="['top','top','top','top']"
+                         data-textalign="['bottom','bottom','bottom','bottom']" data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":2000,"frame":"0","from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="slide-image-4"><img src="img/hero/4.png" alt=" /"></div>
+                    </div>
+                    <div class="tp-caption tp-resizeme rs-parallaxlevel-1" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="image"
+                         data-height="none" data-width="['92','92','850','600']" data-whitespace="normal" data-hoffset="['270','-600','-605','-550']"
+                         data-voffset="['705','225','180','140']" data-x="['right','right','right','right']" data-y="['top','top','top','top']"
+                         data-textalign="['bottom','bottom','bottom','bottom']" data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":2000,"frame":"0","from":"x:[-105%];z:0;rX:0deg;rY:0deg;rZ:-90deg;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="slide-image-5"><img src="img/hero/5.png" alt=" /"></div>
+                    </div>
+                    <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]"
+                         data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['500','500','500','500']"
+                         data-whitespace="normal" data-hoffset="['15','30','30','25']" data-voffset="['-53','-73','-73','-60']"
+                         data-x="['left','left','left','left']" data-y="center" data-textAlign="['inherit','inherit','inherit','inherit']"
+                         data-frames='[{"delay":1000,"split":"chars","splitdelay":0.1,"speed":3000,"split_direction":"forward","frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'>
+                        <h1>We are Ready for Digital Marketing </h1>
+                    </div>
+                    <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]"
+                         data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['500','500','500','500']"
+                         data-whitespace="normal" data-hoffset="['15',30,'30','25']" data-voffset="['55','55','55','55']"
+                         data-x="['left','left','left','left']" data-y="center" data-textAlign="['inherit','inherit','inherit','inherit']"
+                         data-frames='[{"delay":2500,"speed":3000,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[-100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
+                        <div class="text">Aliquet lobortis ac commodo eu tincidunt lectuere urna inceptos.</div>
+                    </div>
+                    <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                         data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text"
+                         data-height="none" data-width="['750','650','550','600']" data-whitespace="normal" data-hoffset="['15','30','30','25']"
+                         data-voffset="['163','163','163','163']" data-x="['left','left','left','left']" data-y="center"
+                         data-textAlign="['inherit','inherit','inherit','inherit']" data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <a href="#" class="btn intro-btn">Learn More</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Main Slider-->
+<!-- Start Marketing Area -->
+<section class="marketing-area section-padding">
     <div class="container">
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-9">
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
-                                    <form class="user" method="post">
-                                        <div class="form-group">
-                                            @Html.TextBoxFor(Model => Model.Email, new { @class = "form-control form-control-user", @placeholder = "Enter Email Address" })
-                                        </div>
-                                        <div class="form-group">
-                                            @Html.TextBoxFor(Model => Model.Password, new { @class = "form-control form-control-user", @placeholder = "Password", @type = "password" })
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                            </div>
-                                        </div>
-                                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-5">
+                <div class="marketing-content-left">
+                    <h2>All Kind of Digital Marketing</h2>
+                    <p>Consequat ac lacus diam lacus, mauris lestinunc vestibulumes. ciosqu orci. Tortor efntum lectros et mi enim, elisaen,non et morbi et vestibulum malesuada digital marketing.</p>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-7">
+                <div class="marketing-content-right">
+                    <div class="marketing-content">
+                        <span class="flaticon-analytics"></span>
+                        <h3>Keyword Research</h3>
+                        <p>Consectetuer vel id vel vaongue vulputate, odio curabiturviver interdum adipiscing sceler</p>
+                    </div>
+                    <div class="marketing-content">
+                        <span class="flaticon-promotion"></span>
+                        <h3>Social Marketing</h3>
+                        <p>Consectetuer vel id vel vaongue vulputate, odio curabiturviver interdum adipiscing sceler</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-area section-padding">
+    <div class="shape-1">
+        <img src="img/service/8.png" alt="img">
+    </div>
+    <div class="shape-2">
+        <img src="img/service/9.png" alt="img">
+    </div>
+    <div class="shape-3">
+        <img src="img/service/10.png" alt="img">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="services-title">
+                    <h4>Get Your Services</h4>
+                    <h2>Our Services</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="services-block">
+                    <!-- Single service Item -->
+                    <div class="services-item">
+                        <div class="services-icon">
+                            <img src="img/service/2.png" alt="Service">
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Mauris viverra eu quis sodalesete amet a erat faucibus null cudolor porttitor ablacus setup.</p>
+                    </div>
+                    <!-- Single service Item -->
+                    <div class="services-item">
+                        <div class="services-icon">
+                            <img src="img/service/3.png" alt="Service">
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Mauris viverra eu quis sodalesete amet a erat faucibus null cudolor porttitor ablacus setup.</p>
+                    </div>
+                    <!-- Single service Item -->
+                    <div class="services-item">
+                        <div class="services-icon">
+                            <img src="img/service/4.png" alt="Service">
+                        </div>
+                        <h3>Cloud Development</h3>
+                        <p>Mauris viverra eu quis sodalesete amet a erat faucibus null cudolor porttitor ablacus setup.</p>
+                    </div>
+                    <!-- Single service Item -->
+                    <div class="services-item">
+                        <div class="services-icon">
+                            <img src="img/service/5.png" alt="Service">
+                        </div>
+                        <h3>Data &amp; Analytic</h3>
+                        <p>Mauris viverra eu quis sodalesete amet a erat faucibus null cudolor porttitor ablacus setup.</p>
+                    </div>
+                    <!-- Single service Item -->
+                    <div class="services-item">
+                        <div class="services-icon">
+                            <img src="img/service/6.png" alt="Service">
+                        </div>
+                        <h3>Content Writing</h3>
+                        <p>Mauris viverra eu quis sodalesete amet a erat faucibus null cudolor porttitor ablacus setup.</p>
+                    </div>
+                    <!-- Single service Item -->
+                    <div class="services-item">
+                        <div class="services-icon">
+                            <img src="img/service/7.png" alt="Service">
+                        </div>
+                        <h3>Social Marketing</h3>
+                        <p>Mauris viverra eu quis sodalesete amet a erat faucibus null cudolor porttitor ablacus setup.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="project-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="project-title">
+                    <h4>Awesome Work</h4>
+                    <h2>Our Latest Project</h2>
+                    <h5><a href="#">See All Project</a></h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="project">
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/1.jpg">
+                            <img src="img/project/1.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/2.jpg">
+                            <img src="img/project/2.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/3.jpg">
+                            <img src="img/project/3.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/4.jpg">
+                            <img src="img/project/4.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/5.jpg">
+                            <img src="img/project/5.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/6.jpg">
+                            <img src="img/project/6.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="img/project/7.jpg">
+                            <img src="img/project/7.jpg" alt="Project">
+                        </a>
+                        <div class="project-item-hover">
+                            <h4><a href="#">Business Planning</a></h4>
+                            <span>Research, Marketing</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="~/Areas/AdminPanel/Public/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Areas/AdminPanel/Public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Areas/AdminPanel/Public/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="~/Areas/AdminPanel/Public/js/sb-admin-2.min.js"></script>
-</body>
-</html>
-
+</section>
+<!-- End Latest Project Area -->
+<!-- Start Pricing Area -->
+<!-- End Pricing Area -->
+<!-- Start FAQ Area -->
+<section class="faq-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="faq-title">
+                    <h2>Some common question about us</h2>
+                </div>
+                <div class="faq-info">
+                    <!-- Single FAQ -->
+                    <div class="faq-single">
+                        <div class="faq-number">
+                            <span>01</span>
+                        </div>
+                        <div class="faq-content">
+                            <h4>How can i submit info form?</h4>
+                            <p>Lorem ipsum dolor sit amet, erat fringilla vel cupitate nec egestasprat nulla curabitur et. Inceptos hac posuere, amet auctor vitaenim lacus occaecatmet commodo sem ante elit.</p>
+                        </div>
+                    </div>
+                    <!-- Single FAQ -->
+                    <div class="faq-single">
+                        <div class="faq-number">
+                            <span>02</span>
+                        </div>
+                        <div class="faq-content">
+                            <h4>Where we are provided our services?</h4>
+                            <p>Lorem ipsum dolor sit amet, erat fringilla vel cupitate nec egestasprat nulla curabitur et. Inceptos hac posuere, amet auctor vitaenim lacus occaecatmet commodo sem ante elit.</p>
+                        </div>
+                    </div>
+                    <!-- Single FAQ -->
+                    <div class="faq-single">
+                        <div class="faq-number">
+                            <span>03</span>
+                        </div>
+                        <div class="faq-content">
+                            <h4>What is the benefit from our services?</h4>
+                            <p>Lorem ipsum dolor sit amet, erat fringilla vel cupitate nec egestasprat nulla curabitur et. Inceptos hac posuere, amet auctor vitaenim lacus occaecatmet commodo sem ante elit.</p>
+                        </div>
+                    </div>
+                    <!-- Single FAQ -->
+                    <div class="faq-single">
+                        <div class="faq-number">
+                            <span>04</span>
+                        </div>
+                        <div class="faq-content">
+                            <h4>How can i get info aobut hyna?</h4>
+                            <p>Lorem ipsum dolor sit amet, erat fringilla vel cupitate nec egestasprat nulla curabitur et. Inceptos hac posuere, amet auctor vitaenim lacus occaecatmet commodo sem ante elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End FAQ Area -->
+<!-- Start Counter Area -->
+<!-- End Counter Area -->
+<!-- Start Blog Area -->
+<section class="blog-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-title">
+                    <h4>Latest Blog</h4>
+                    <h2>Our Blog and Tips</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog">
+                    <!-- Single Blog -->
+                    <div class="single-news">
+                        <div class="blog-content">
+                            <h3><a href="#">Stand Up for Democracy in Hong Kong</a></h3>
+                            <p>Quisque commodo arcu Nitempuaquam, diapien erat blanditiis mauris vestibulum non. Quisque placerat sem ante.</p>
+                            <ul class="blog-meta list-style">
+                                <li><a href="#"><img src="img/blog/1.jpg" alt="img">Jamel Grant</a></li>
+                                <li><a href="#">26 April 2019</a></li>
+                                <li><a href="#"><i class="far fa-comment"></i>12</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Blog -->
+                    <div class="single-news">
+                        <div class="blog-content">
+                            <h3><a href="#">Israel’s Invisible Filipino Work Force</a></h3>
+                            <p>Quisque commodo arcu Nitempuaquam, diapien erat blanditiis mauris vestibulum non. Quisque placerat sem ante.</p>
+                            <ul class="blog-meta list-style">
+                                <li><a href="#"><img src="img/blog/2.jpg" alt="img">Jamel Grant</a></li>
+                                <li><a href="#">26 April 2019</a></li>
+                                <li><a href="#"><i class="far fa-comment"></i>12</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Blog -->
+                    <div class="single-news">
+                        <div class="blog-content">
+                            <h3><a href="#">Waking Up on an Orangutan Island</a></h3>
+                            <p>Quisque commodo arcu Nitempuaquam, diapien erat blanditiis mauris vestibulum non. Quisque placerat sem ante.</p>
+                            <ul class="blog-meta list-style">
+                                <li><a href="#"><img src="img/blog/3.jpg" alt="img">Jamel Grant</a></li>
+                                <li><a href="#">26 April 2019</a></li>
+                                <li><a href="#"><i class="far fa-comment"></i>12</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Blog Area -->
+<!-- Start Client Logo Area -->
+<div class="client-logo-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="client-logo-slider owl-carousel owl-theme">
+                    <div class="client-logo-single">
+                        <img src="img/clients/1.png" alt="Logo">
+                    </div>
+                    <div class="client-logo-single">
+                        <img src="img/clients/2.png" alt="Logo">
+                    </div>
+                    <div class="client-logo-single">
+                        <img src="img/clients/3.png" alt="Logo">
+                    </div>
+                    <div class="client-logo-single">
+                        <img src="img/clients/4.png" alt="Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

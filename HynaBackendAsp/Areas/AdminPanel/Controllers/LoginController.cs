@@ -9,7 +9,7 @@ using System.Web.Helpers;
 
 namespace HynaBackendAsp.Areas.AdminPanel.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
         private HynaContext db = new HynaContext();
 

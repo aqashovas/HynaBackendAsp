@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace HynaBackendAsp.Areas.AdminPanel.Controllers
 {
-    [Admin]
+    //[Admin]
     public class DashboardController : Controller
     {
         // GET: AdminPanel/Dashboard
