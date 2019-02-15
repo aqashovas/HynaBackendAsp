@@ -12,11 +12,13 @@ namespace HynaBackendAsp.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Tittle { get; set; }
 
         [Required]
         public DateTime Date { get; set; }
 
+        [MinLength(100)]
         public string Desc { get; set; }
 
         public string Photo { get; set; }

@@ -12,10 +12,13 @@ namespace HynaBackendAsp.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public int Orderby { get; set; }
 
+        [Required]
         public string Key { get; set; }
 
+        [Required]
         public string Value { get; set; }
 
 

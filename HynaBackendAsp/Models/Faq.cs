@@ -14,8 +14,10 @@ namespace HynaBackendAsp.Models
 
         public int CategoryId { get; set; }
 
+        [Required]
         public string Question { get; set; }
 
+        [Required]
         public string Answer { get; set; }
 
         public FaqCategory FaqCategory { get; set; }

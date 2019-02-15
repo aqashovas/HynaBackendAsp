@@ -12,8 +12,10 @@ namespace HynaBackendAsp.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Tittle { get; set; }
 
+       
         public string Slogan { get; set; }
 
         public string More_url { get; set; }

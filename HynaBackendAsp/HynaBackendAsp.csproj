@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201902142115377_Admin.Designer.cs">
       <DependentUpon>201902142115377_Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902151540411_models.cs" />
+    <Compile Include="Migrations\201902151540411_models.Designer.cs">
+      <DependentUpon>201902151540411_models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -2137,6 +2141,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Upload\logo.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2165,7 +2170,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminPanel\Models\" />
     <Folder Include="Areas\AdminPanel\Views\Home\" />
-    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -2184,6 +2188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902142115377_Admin.resx">
       <DependentUpon>201902142115377_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902151540411_models.resx">
+      <DependentUpon>201902151540411_models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

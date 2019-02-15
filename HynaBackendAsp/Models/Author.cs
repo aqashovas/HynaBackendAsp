@@ -12,6 +12,7 @@ namespace HynaBackendAsp.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Fullname { get; set; }
 
         public string Position { get; set; }

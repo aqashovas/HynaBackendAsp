@@ -11,6 +11,7 @@ namespace HynaBackendAsp.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Tittle { get; set; }
 
         [Column(name:"ntext")]
